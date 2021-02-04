@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    background-color: #d6d6d6;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+
+.wrapper {
+    background-color: #fdfdbb;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.boxMenu {
+    margin-top: 3px;
+    width: 480px;
+    height: 400px;
+    overflow: hidden auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.textInputArea {
+    display: flex;
+    justify-content: space-between;
+}
+.listBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.leftList {
+    display: flex;
+    flex-direction: row;
+}
+.editSpan {
+    display: none;
+
+}
+.bottomMenu {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+#deleteAllChecked {
+    height: 36px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#myProgress {
+    width: 40%;
+    background-color: #bababa;
+    border: 2px solid #000000;
+
+
+}
+
+#myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #ff9436;
+}
+#progressContainer {
+    width: 110%
+}
+
+#taskDone {
+    padding-left: 30px;
+}

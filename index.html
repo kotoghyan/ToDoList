@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>To Do List</h1>
+        <div class="boxMenu">
+            <div class="textInputArea">
+                <input type="text" class="inputArea"  autofocus placeholder="Add Text">
+                <button type="button" class="add" value="+">+</button>
+            </div>
+                <div class="listMenu"></div>
+            <div class="bottomMenu">
+                <div id="progressContainer">
+                     <div id="myProgress">
+                         <div id="myBar"></div>
+                     </div>
+                    <span id="taskDone"> <span id="isDone">0</span> of <span id="is">0</span> is Done </span>
+                </div>
+                    <button id="deleteAllChecked">Remove Checked</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
