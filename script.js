@@ -6,13 +6,12 @@ const domElements = {
     progressBar: document.getElementById("myBar"),
     isDone: document.getElementById("isDone"),
     isAmount: document.getElementById("is"),
-
 };
 
 
 const toDoList = [];
 let id = 1;
-let idCount = 0
+let check = 0;
 
 const pageActions = {
     toDoControlChek: function (checkBox, textField, container, id) {
@@ -24,22 +23,21 @@ const pageActions = {
 
             } else {
                 textField.style.textDecoration = "none";
-                idCount = idCount - 1
                 pageActions.progressBarFunc(e,id)
             }
 
         })
     },
-
     progressBarFunc: function (e, id) {
-        toDoList.forEach((el) => {
-            if (e.target.checked === true && el.id === +id){
-                idCount += 1
-            } else {
-                idCount -=1
-            }
-        })
-        console.log(idCount);
+        if (e.target.checked === true) {
+            check += 1
+        } else {
+            check -= 1
+        }
+        this.drawProgressBarWidth(toDoList.length)
+    },
+    drawProgressBarWidth: function (ToDoListLength) {
+        domElements.progressBar.style.width = ((check/(ToDoListLength)) *100) +"%"
     },
     editBooleanButton: function (event) {
         if (event.target.innerText === "Edit") {
@@ -73,8 +71,7 @@ const pageActions = {
             }
         })
     },
-
-    deleteContainer: function (deleteButton, container) {
+    deleteContainer: function (deleteButton, container, ) {
         deleteButton.addEventListener("click", function (){
             container.remove();
         })
@@ -86,11 +83,18 @@ const pageActions = {
             }
         })
     },
+    checkToDoListLength: function (length) {
+        this.drawProgressBarWidth(length)
+    },
+    taskDone: function () {
 
+    },
+    removeCont: function (delBtn, cont,  id, checkBox) {
+        if (checkBox.checked === true){
 
-
+        }
+    }
 }
-
 
 
 domElements.addButton.addEventListener("click", function (){
@@ -101,6 +105,8 @@ domElements.addButton.addEventListener("click", function (){
         domElements.inputArea.value = "";
 
         create(toDoObj);
+
+        pageActions.checkToDoListLength(toDoList.length);
     }
 });
 
@@ -152,6 +158,7 @@ function createTodoItem(text, id){
     pageActions.toDoControlChek(checkBox,textField, container,container.id);
     pageActions.editTxt(editButton, textField, editableText, container.id);
     pageActions.deleteContainer(deleteButton, container);
+    pageActions.removeCont(deleteButton, container, id, checkBox)
 
     return container
 }
